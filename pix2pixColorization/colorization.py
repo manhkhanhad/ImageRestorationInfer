@@ -1,6 +1,4 @@
 import torch
-import sys
-sys.path.append('pix2pixColorization')
 from networks import define_G
 #Load model
 
