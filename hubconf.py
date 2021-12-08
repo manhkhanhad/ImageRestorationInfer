@@ -1,5 +1,7 @@
 #from pix2pixColorization.networks import defind_G
 from pix2pixColorization import networks
+from fastai.vision.models.unet import DynamicUnet
+from torchvision.models.resnet import resnet18
 import sys
 import torch
 sys.path.insert(0, 'pix2pixColorization')
@@ -32,6 +34,25 @@ def pix2pixColorization():
     model.load_state_dict(state_dict)
     
     return model
+
+def DeOldifyColorization():
+    gpu_ids = []
+    url = "https://github.com/manhkhanhad/ImageRestorationInfer/releases/download/Pretrained/latest_net_G_DeOldify.pth"
+
+    body = create_body(resnet18, pretrained=False, n_in=1, cut=-2)
+    model = DynamicUnet(body, 3, (256, 256),self_attention=True)
+
+    device = (
+        torch.device("cuda:{}".format(gpu_ids[0])) if gpu_ids else torch.device("cpu")
+    )
+
+    state_dict = torch.hub.load_state_dict_from_url(url, progress=True)
+    if hasattr(state_dict, '_metadata'):
+        del state_dict._metadata
+    model.load_state_dict(state_dict)
+    
+    return model
+
 
 # if __name__ == '__main__':
 #     pix2pixColorization()
