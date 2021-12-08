@@ -32,3 +32,6 @@ def pix2pixColorization():
     model.load_state_dict(state_dict)
     
     return model
+
+# if __name__ == '__main__':
+#     pix2pixColorization()
