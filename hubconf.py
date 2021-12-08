@@ -1,11 +1,16 @@
-from pix2pixColorization.networks import defind_G
+#from pix2pixColorization.networks import defind_G
+from pix2pixColorization import networks
+import sys
+import torch
+sys.path.insert(0, 'pix2pixColorization')
+
 
 def pix2pixColorization():
     gpu_ids = []
-    url = "https://drive.google.com/file/d/1LjM-ml5SqJUcgmg7GtfODTcTqVGirJgM"
+    url = "https://github.com/manhkhanhad/ImageRestorationInfer/releases/download/Pretrained/latest_net_G.pth"
 
 
-    gen = define_G(
+    model = networks.define_G(
             input_nc=1,
             output_nc=2,
             ngf=64,
