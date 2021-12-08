@@ -1,4 +1,4 @@
-from pix2pixColorization.colorization import ColorizationModel
+from pix2pixColorization.networks import defind_G
 
 def pix2pixColorization():
     gpu_ids = []
