@@ -68,7 +68,7 @@ def DeOldifyColorization():
     gpu_ids = []
     url = "https://github.com/manhkhanhad/ImageRestorationInfer/releases/download/Pretrained/latest_net_G_deoldify_newWeight.pth"
 
-    body = create_body(resnet18, pretrained=False, n_in=3, cut=-2)
+    body = create_body(resnet18, pretrained=False, n_in=1, cut=-2)
     model = DynamicUnet(body, 3, (256, 256),self_attention=True)
 
     device = (
