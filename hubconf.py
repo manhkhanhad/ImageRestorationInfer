@@ -10,7 +10,7 @@ sys.path.insert(0, 'pix2pixColorization')
 
 def pix2pixColorization_unet256():
     gpu_ids = []
-    url = "https://github.com/manhkhanhad/ImageRestorationInfer/releases/download/Pretrained/latest_net_G.pth"
+    url = "https://github.com/manhkhanhad/ImageRestorationInfer/releases/download/Pretrained/colorization_100_net_G_unet256.pth"
 
 
     model = networks.define_G(
@@ -38,7 +38,7 @@ def pix2pixColorization_unet256():
 
 def pix2pixColorization_resnet9b():
     gpu_ids = []
-    url = "https://github.com/manhkhanhad/ImageRestorationInfer/releases/download/Pretrained/latest_net_G_resnet9b.pth"
+    url = "https://github.com/manhkhanhad/ImageRestorationInfer/releases/download/Pretrained/colorization_100_net_G_resnet9blocks.pth"
 
 
     model = networks.define_G(
@@ -111,3 +111,4 @@ def pix2pixRestoration_unet256():
 
 # if __name__ == '__main__':
 #     pix2pixColorization()
+
